@@ -4,42 +4,12 @@ import java.util.Scanner;
 
 public class Lab_3_4 {
     public static void main(String[] args) {
-        int firstQuantity;
-        int secondQuantity;
-        Scanner scanner = new Scanner(System.in);
-        do {
-            System.out.print("Please input quantity of 1st array (0 < Quantity < 10): ");
-            firstQuantity = scanner.nextInt();
-        } while (firstQuantity >= 10 || firstQuantity < 0);
-        System.out.printf("Please input a 1s array with %d numbers\n", firstQuantity);
-        int[] array1st = new int[firstQuantity];
-        for (int i = 0; i < (firstQuantity); i++) {
-            System.out.printf("Number %d: ", i + 1);
-            array1st[i] = scanner.nextInt();
-        }
-        do {
-            System.out.print("Please input quantity of 2nd array (0 < Quantity < 10): ");
-            secondQuantity = scanner.nextInt();
-        } while (secondQuantity >= 10 || secondQuantity < 0);
-        System.out.printf("Please input a 1s array with %d numbers\n", secondQuantity);
-        int[] array2nd = new int[secondQuantity];
-        for (int i = 0; i < (secondQuantity); i++) {
-            System.out.printf("Number %d: ", i + 1);
-            array2nd[i] = scanner.nextInt();
-        }
-        int[] sortedArray = new int[firstQuantity + secondQuantity];
-        for (int i = 0; i < (firstQuantity + secondQuantity); i++) {
-            if (i < firstQuantity) {
-                sortedArray[i] = array1st[i];
-            } else {
-                sortedArray[i] = array2nd[i-firstQuantity];
-            }
-        }
-        sortAsc(sortedArray);
+        int[] array1st = createArray(1);
+        int[] array2nd = createArray(2);
+        int[] mergedArray = mergeTwoArray(array1st, array2nd);
+        sortAsc(mergedArray);
         System.out.print("After sorting, the array is: ");
-        for (int i = 0; i < sortedArray.length; i++) {
-            System.out.printf("%d ", sortedArray[i]);
-        }
+        printArray(mergedArray);
     }
 
     private static void sortAsc(int[] sortedArray) {
@@ -53,4 +23,40 @@ public class Lab_3_4 {
             }
         }
     }
+
+    private static int[] createArray(int arrayQuantity) {
+        int quantity;
+        Scanner scanner = new Scanner(System.in);
+        do {
+            System.out.printf("Please input quantity of array_%d (0 < Quantity < 10): ", arrayQuantity);
+            quantity = scanner.nextInt();
+        } while (quantity >= 10 || quantity < 0);
+        System.out.printf("Please input array_%d with %d numbers\n", arrayQuantity, quantity);
+        int[] array = new int[quantity];
+        for (int i = 0; i < (array.length); i++) {
+            System.out.printf("Number %d: ", i + 1);
+            array[i] = scanner.nextInt();
+        }
+        return array;
+    }
+
+    private static int[] mergeTwoArray(int[] array1st, int[] array2nd) {
+        int[] mergedArray = new int[array1st.length + array2nd.length];
+        for (int i = 0; i < ((array1st.length + array2nd.length)); i++) {
+            if (i < array1st.length) {
+                mergedArray[i] = array1st[i];
+            } else {
+                mergedArray[i] = array2nd[i - array1st.length];
+            }
+        }
+        return mergedArray;
+    }
+
+    private static void printArray(int[] array){
+        for (int j : array) {
+            System.out.printf("%d ", j);
+        }
+    }
+
 }
+
