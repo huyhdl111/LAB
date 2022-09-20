@@ -12,26 +12,14 @@ public class Lab_3_4 {
         printArray(mergedArray);
     }
 
-    private static void sortAsc(int[] sortedArray) {
-        for (int i = 0; i < sortedArray.length; i++) {
-            for (int j = sortedArray.length - 1; j >= i + 1; j--) {
-                if (sortedArray[j] < sortedArray[j - 1]) {
-                    int tmp = sortedArray[j - 1];
-                    sortedArray[j - 1] = sortedArray[j];
-                    sortedArray[j] = tmp;
-                }
-            }
-        }
-    }
-
-    private static int[] createArray(int arrayQuantity) {
+    private static int[] createArray(int arrayNumber) {
         int quantity;
         Scanner scanner = new Scanner(System.in);
         do {
-            System.out.printf("Please input quantity of array_%d (0 < Quantity < 10): ", arrayQuantity);
+            System.out.printf("Please input quantity of array_%d (0 < Quantity < 10): ", arrayNumber);
             quantity = scanner.nextInt();
         } while (quantity >= 10 || quantity < 0);
-        System.out.printf("Please input array_%d with %d numbers\n", arrayQuantity, quantity);
+        System.out.printf("Please input array_%d with %d numbers\n", arrayNumber, quantity);
         int[] array = new int[quantity];
         for (int i = 0; i < (array.length); i++) {
             System.out.printf("Number %d: ", i + 1);
@@ -50,6 +38,18 @@ public class Lab_3_4 {
             }
         }
         return mergedArray;
+    }
+
+    private static void sortAsc(int[] sortedArray) {
+        for (int i = 0; i < sortedArray.length; i++) {
+            for (int j = sortedArray.length - 1; j >= i + 1; j--) {
+                if (sortedArray[j] < sortedArray[j - 1]) {
+                    int tmp = sortedArray[j - 1];
+                    sortedArray[j - 1] = sortedArray[j];
+                    sortedArray[j] = tmp;
+                }
+            }
+        }
     }
 
     private static void printArray(int[] array){
