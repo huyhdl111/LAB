@@ -1,13 +1,16 @@
-package Lab_03;
+package lab_03;
 
 import java.util.Scanner;
 
-public class Lab_3_3 {
+public class Lab_3_1 {
+    private static int countEven;
+    private static int countOdd;
+
     public static void main(String[] args) {
         int[] array = createArray();
-        sortAsc(array);
-        System.out.print("After sorting, the array is: ");
-        printArray(array);
+        countOddEvenNumber(array);
+        System.out.printf("Even numbers: %d\n", countEven);
+        System.out.printf("Odd numbers: %d\n", countOdd);
     }
 
     private static int[] createArray() {
@@ -26,21 +29,14 @@ public class Lab_3_3 {
         return array;
     }
 
-    private static void sortAsc(int[] sortedArray) {
-        for (int i = 0; i < sortedArray.length; i++) {
-            for (int j = sortedArray.length - 1; j >= i + 1; j--) {
-                if (sortedArray[j] < sortedArray[j - 1]) {
-                    int tmp = sortedArray[j - 1];
-                    sortedArray[j - 1] = sortedArray[j];
-                    sortedArray[j] = tmp;
-                }
+    private static void countOddEvenNumber(int[] array) {
+        Scanner scanner = new Scanner(System.in);
+        for (int i = 0; i < (array.length); i++) {
+            if ((array[i]) % 2 == 0) {
+                countEven++;
+            } else {
+                countOdd++;
             }
-        }
-    }
-
-    private static void printArray(int[] array) {
-        for (int j : array) {
-            System.out.printf("%d ", j);
         }
     }
 }

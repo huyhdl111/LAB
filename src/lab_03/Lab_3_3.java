@@ -1,43 +1,29 @@
-package Lab_03;
+package lab_03;
 
 import java.util.Scanner;
 
-public class Lab_3_4 {
+public class Lab_3_3 {
     public static void main(String[] args) {
-        int[] array1st = createArray(1);
-        int[] array2nd = createArray(2);
-        int[] mergedArray = mergeTwoArray(array1st, array2nd);
-        sortAsc(mergedArray);
+        int[] array = createArray();
+        sortAsc(array);
         System.out.print("After sorting, the array is: ");
-        printArray(mergedArray);
+        printArray(array);
     }
 
-    private static int[] createArray(int arrayNumber) {
+    private static int[] createArray() {
         int quantity;
         Scanner scanner = new Scanner(System.in);
         do {
-            System.out.printf("Please input quantity of array_%d (0 < Quantity < 10): ", arrayNumber);
+            System.out.printf("Please input quantity of array (0 < Quantity < 10): ");
             quantity = scanner.nextInt();
         } while (quantity >= 10 || quantity < 0);
-        System.out.printf("Please input array_%d with %d numbers\n", arrayNumber, quantity);
+        System.out.printf("Please input array with %d numbers\n", quantity);
         int[] array = new int[quantity];
         for (int i = 0; i < (array.length); i++) {
             System.out.printf("Number %d: ", i + 1);
             array[i] = scanner.nextInt();
         }
         return array;
-    }
-
-    private static int[] mergeTwoArray(int[] array1st, int[] array2nd) {
-        int[] mergedArray = new int[array1st.length + array2nd.length];
-        for (int i = 0; i < ((array1st.length + array2nd.length)); i++) {
-            if (i < array1st.length) {
-                mergedArray[i] = array1st[i];
-            } else {
-                mergedArray[i] = array2nd[i - array1st.length];
-            }
-        }
-        return mergedArray;
     }
 
     private static void sortAsc(int[] sortedArray) {
@@ -52,11 +38,9 @@ public class Lab_3_4 {
         }
     }
 
-    private static void printArray(int[] array){
+    private static void printArray(int[] array) {
         for (int j : array) {
             System.out.printf("%d ", j);
         }
     }
-
 }
-
