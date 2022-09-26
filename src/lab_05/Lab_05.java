@@ -46,11 +46,10 @@ public class Lab_05 {
         System.out.print("===> Please select an option: ");
     }
 
-    private static List addNumberToArray(List<Integer> array) {
+    private static void addNumberToArray(List<Integer> array) {
         System.out.print("====> Please input number: ");
         Scanner scanner = new Scanner(System.in);
         array.add(scanner.nextInt());
-        return array;
     }
 
     private static void printArray(List<Integer> array) {
