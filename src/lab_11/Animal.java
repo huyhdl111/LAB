@@ -9,5 +9,6 @@ public abstract class Animal {
     public abstract void setName(String name);
 
     public abstract int getSpeed();
+
     public abstract void setSpeed();
 }
