@@ -23,8 +23,6 @@ public class Animal {
         this.name = animalRunner.name;
         this.speed = animalRunner.speed;
         this.whithWing = animalRunner.whithWing;
-
-
     }
 
     public static class  AnimalRunner{

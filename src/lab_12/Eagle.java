@@ -1,0 +1,24 @@
+package lab_12;
+
+public class Eagle implements FlyAble{
+    String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    @Override
+    public boolean isFlyAble() {
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Eagle{" +
+                "name='" + name + '\'' +
+                '}';
+    }
+}
